@@ -1,0 +1,46 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.2.RELEASE'
+		springCloudVersion = '1.2.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+group = 'com.rrs'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile 'org.projectlombok:lombok:1.16.20'
+	// Spring boot jar
+	compile('org.springframework.boot:spring-boot-starter')
+	compile "org.springframework.boot:spring-boot-starter-web"
+	compile "org.springframework.boot:spring-boot-starter-actuator"
+
+	// Feign jar
+	compile 'org.springframework.cloud:spring-cloud-starter-feign:1.2.6.RELEASE'
+	compile "com.netflix.hystrix:hystrix-javanica:1.5.10"
+
+	// Spring Cloud
+	compile "org.springframework.cloud:spring-cloud-core:$springCloudVersion"
+	compile "org.springframework.cloud:spring-cloud-spring-service-connector:$springCloudVersion"
+	compile "org.springframework.cloud:spring-cloud-cloudfoundry-connector:$springCloudVersion"
+
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+

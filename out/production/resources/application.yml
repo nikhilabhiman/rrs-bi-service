@@ -1,0 +1,8 @@
+spring:
+   data:
+     mongodb:
+       uri : mongodb://dinesh:test@localhost:27017/admin
+       database  :  rrs_dev
+hmac:
+  apikey: 'abc'
+  secret: 'xyz'
